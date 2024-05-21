@@ -2,11 +2,34 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.forms import inlineformset_factory
 from .models import Order,Product,Customer
-from .forms import OrderForm,CustomerForm
+from .forms import OrderForm,CustomerForm,CreateUserForm
 from .filters import OrderFilter
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 
 # Create your views here.
+def registerpage(request):
+    form=CreateUserForm()
+    if request.method=="POST":
+        form=CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user1=form.cleaned_data.get('username')
+            messages.success(request,"Account for "+ user1 +" created successfully")
+            return redirect("loginuser")
+    context={
+        "form":form
+    }
+    return render(request,"accounts/register.html",context)
+
+def loginpage(request):
+    context={
+
+    }
+    return render(request,"accounts/login.html",context)
+
+
 def home(request):
     customers=Customer.objects.order_by('-id')[:5]
     # customers=Customer.objects.all()
@@ -175,17 +198,6 @@ def delete_customer(request,pk):
 #     }
 #     return render(request,"accounts/user.html",context)
 
-def registerpage(request):
-    context={
-
-    }
-    return render(request,"accounts/register.html",context)
-
-def loginpage(request):
-    context={
-
-    }
-    return render(request,"accounts/login.html",context)
 
 
 
