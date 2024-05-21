@@ -1,0 +1,10 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<form action="" method="POST" novalidate>
+    {% csrf_token %}
+    {{ form }}
+    <input class="btn btn-info" type="submit" name="Submit">
+    </form>
+
+{% endblock %}

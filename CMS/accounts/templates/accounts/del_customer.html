@@ -1,0 +1,28 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <p>
+                    Would you like to delete Customer: {{cust_to_delete.first_name }}?<br>
+                    <b>Customer details</b>
+                <ul>
+                    <li>Other names: {{cust_to_delete.last_name}}</li>
+                    <li>Email: {{cust_to_delete.email}}</li>
+                    <li>Phone Number: {{cust_to_delete.phone}}</li>
+                    <li>Date_created: {{cust_to_delete.date_created}}</li>
+                </ul>
+                </p>
+                <a class="btn btn-warning" href="{% url 'home' %}">Cancel</a>
+                <input class="btn btn-danger" type="submit" name="Confirm">
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
