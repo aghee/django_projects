@@ -14,12 +14,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
+        {% if request.user.is_superuser %}
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'home' %}">Dashboard</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'product' %}">Products</a>
         </li>
+        {% endif %}
       </ul>
     </div>
     <span class="hello-msg">Hi,{{ request.user|upper }}</span>
