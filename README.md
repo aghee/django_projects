@@ -14,7 +14,7 @@ This is a simple web application developed using Django models, views, and forms
 * Perform create,read,update and delete operations.  
 * Integrate Google Sign-In for social authentication to streamline user login.  
 * The app is deployed on Render,and leverages AWS S3 for efficient static file management  
-Visit app()  
+Visit app 
 
 ### Contribution Guidelines
 [Zen of Python](https://docs.python.org/3/glossary.html#term-Zen-of-Python)
