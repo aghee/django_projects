@@ -37,8 +37,11 @@ def registerpage(request):
 @unauthenticated_user
 def loginpage(request):
     if request.method=="POST":
-        username=request.POST.get("username_one")
-        password=request.POST.get("password_one")
+        # username=request.POST.get("username_one")
+        # password=request.POST.get("password_one")
+
+        username=request.POST["username_one"]
+        password=request.POST["password_one"]
 
         user=authenticate(request,username=username,password=password)
 

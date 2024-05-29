@@ -142,3 +142,25 @@ MEDIA_URL='/images/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
+
+#Simple Mail Transfer Protocol(SMTP) Configuration
+# EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+# EMAIL_HOST_USER = 'a12b10ab955490'
+# EMAIL_HOST_PASSWORD = '5b3943872359e4'
+# EMAIL_PORT = '2525'
+
+# if ENVIRONMENT == 'production' or POSTGRES_LOCALLY ==True:
+# else:
+#     EMAIL_BACKEND="django.core.mail.backends.console.EmailBackend"
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+EMAIL_HOST_PASSWORD=os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+# DEFAULT_FROM_EMAIL="codingbuddy"
+# ACCOUNT_EMAIL_SUBJECT_PREFIX=""
+
+
+
