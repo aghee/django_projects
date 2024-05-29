@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y-e@6!yb39drkyc^piuv3j&+@kqz8urzy1q#rv_e7$hfjx+&68'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +130,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+
+#AWC CONFIGURATION
+AWS_ACCESS_KEY_ID =os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY=os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+#Basic storage config for amazon s3
+AWS_STORAGE_BUCKET_NAME='agy-portfolio-bucket-2024'
+AWS_S3_CUSTOM_DOMAIN='%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE=False
+
+STORAGES={
+    #media file /image mgt
+    "default":{
+        "BACKEND":"storages.backends.s3boto3.S3StaticStorage",
+    },
+    #css and js mgt
+    "staticfiles":{
+        "BACKEND":"storages.backends.s3boto3.S3StaticStorage",
+    },
+}
+
