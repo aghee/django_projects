@@ -14,6 +14,8 @@ This is a simple web application developed using Django models, views, and forms
 * Perform create,read,update and delete operations.  
 * Integrate Google Sign-In for social authentication to streamline user login.  
 * The app is deployed on Render,and leverages AWS S3 for efficient static file management  
+* User registration and authentication- Login  
+* Search functionality  
 Visit app 
 
 ### Contribution Guidelines
