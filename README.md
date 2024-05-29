@@ -7,7 +7,7 @@ Dependencies for each project can be found on the respective requirements.txt
 Update the files with secret credentials as needed
 
 ## Projects
-### [Task-tracking app]()
+### [Task-tracking app](https://github.com/aghee/django_projects/tree/main/Task_tracking_app)
 This is a simple web application developed using Django models, views, and forms to help users manage their tasks.  
 
 ## Functional requirements  
