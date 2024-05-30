@@ -61,7 +61,16 @@ class TaskList(LoginRequiredMixin,ListView):
         context=super().get_context_data(**kwargs)
         context['tracker']='TASK TRACKER'
         context['tasks']=context['tasks'].filter(user=self.request.user)
-        context['count']=context['tasks'].filter(complete=False).count()
+        context['count']=context['tasks'].filter(status="Completed").count()
+        context['count_one']=context['tasks'].filter(status="In-progress").count()
+        context['count_two']=context['tasks'].filter(status="Discontinued").count()
+
+        search_input=self.request.GET.get('search-area') or ''
+        if search_input:
+            # context['tasks']=context['tasks'].filter(title__icontains=search_input)
+            context['tasks']=context['tasks'].filter(title__startswith=search_input)
+        
+        context['search_input']=search_input
         return context
 
 
@@ -76,7 +85,7 @@ class TaskCreate(LoginRequiredMixin,CreateView):
     model=Task
     # fields='__all__'
     # exclude='user'
-    fields=['title','description','complete']
+    fields=['title','description','status']
     success_url=reverse_lazy('all_tasks')
 
     def form_valid(self,form):
@@ -86,7 +95,7 @@ class TaskCreate(LoginRequiredMixin,CreateView):
 #default template:_form.html context=object -can be overriden
 class TaskUpdate(LoginRequiredMixin,UpdateView):
     model=Task
-    fields=['title','description','complete']
+    fields=['title','description','status']
     success_url=reverse_lazy('all_tasks')
 
 #default template:_confirm_delete.html context=object -can be overriden
