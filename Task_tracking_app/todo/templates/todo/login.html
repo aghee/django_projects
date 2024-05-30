@@ -1,3 +1,5 @@
+{% extends "todo/base.html" %}
+{% block content %}
 <h1>Login</h1>
 <form action="" method="POST">
     {% csrf_token %}
@@ -13,3 +15,4 @@
     Forgot password?
     <a href="{% url 'password_reset' %}">Reset Password</a>
 </p>
+{% endblock %}
