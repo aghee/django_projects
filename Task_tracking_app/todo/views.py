@@ -30,6 +30,7 @@ def logoutUser(request):
     logout(request)
     return redirect("login")
 
+
 class Registration(FormView):
     template_name="todo/register.html"
     form_class=UserCreationForm
