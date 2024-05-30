@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    max-width: 550px;
+    max-width: 750px;
     margin: auto;
     background-color: #fff;
     -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
@@ -77,3 +77,11 @@ p {
 .task-status.discontinued {
     color:red;
 }
+td, th {
+    padding: 15px;
+  }
+  
+  table {
+    border-spacing: 5px;
+  }
+  
