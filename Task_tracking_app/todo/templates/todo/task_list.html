@@ -6,7 +6,7 @@
 {% endif %}
 
 <hr>
-<h1>My TODO List</h1>
+<h1>Activities ToDo: {{ tracker|title }}</h1>
 <a href="{% url 'createtask' %}">Add task</a>
 
 <table>
@@ -21,6 +21,6 @@
         <td><a href="{% url 'deletetask' task.id %}">Delete</a></td>
         </tr>
         {% empty %}
-        <h3>No items foound!</h3>
+        <h3>Hello {{ request.user|title }}, you have no tasks!</h3>
     {% endfor %}
     </table>
