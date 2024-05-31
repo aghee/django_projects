@@ -1,5 +1,7 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from .models import Project,Tag
+from .forms import ContactForm
+
 
 # Create your views here.
 def home(request):
@@ -12,7 +14,17 @@ def home(request):
     return render(request,"home.html",context)
 
 def contact(request):
-    return render(request,"contact.html")
+    form=ContactForm()
+    if request.method =="POST":
+        form=ContactForm(request.POST)
+        # print("*********",request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+    context={
+        "form":form
+    }
+    return render(request,"contact.html",context)
 
 def about(request):
     return render(request,"about.html")
