@@ -2,16 +2,37 @@
 {% load static %}
 
 {% block title %}
- Contact Page
-{% endblock title  %}
+Contact Page
+{% endblock title %}
 
-{% block extrahead %}
-<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
-{% endblock extrahead%}
+<div class="container">
+    {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+    {% endblock extrahead%}
 
-{% block content %}
-<p>Email: mutembeiagnes@gmail.com </p>
-<p>Phone Number: 0714942400 </p>
+    {% block content %}
 
-<p><b>CONTACT FORM COMING SOON!</b></p>
-{% endblock content %}
+    <p>
+        <b>Email: mutembeiagnes@gmail.com </b> <br>
+        <b> Phone Number: 0714942400 </b>
+    </p>
+
+
+    {% if form %}
+    <form method="POST" style="width: 50%; margin: 0 auto; padding: 20px; border: 1px solid #ddd;" novalidate>
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %} <span style="color: red;">{{ field.errors }}</span> {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit"
+            style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">Submit</button>
+    </form>
+    {% endif %}
+
+    {% endblock content %}
+
+</div>
