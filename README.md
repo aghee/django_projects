@@ -21,9 +21,9 @@ This is a simple web application developed using Django models, views, and forms
 * Password reset
 * Search functionality  
 
-[Visit app] (https://task-tracker-e0bs.onrender.com)  
+[Visit app](https://task-tracker-e0bs.onrender.com)  
 
-###[Codding Buddy app](https://github.com/aghee/coding_buddy_app)  
+### [Coding Buddy app](https://github.com/aghee/coding_buddy_app)  
 This is an app that helps junior developers interact and learn from other developers in the community.  
 
 ## Functional requirements    
@@ -34,7 +34,6 @@ This is an app that helps junior developers interact and learn from other develo
 * Users can be notified of new messages   
 
 [Visit app]  
-
 
 ### Contribution Guidelines
 [Zen of Python](https://docs.python.org/3/glossary.html#term-Zen-of-Python)
