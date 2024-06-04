@@ -10,7 +10,7 @@ Update the files with secret credentials as needed
 ### Portfolio  
 [View my portfolio](https://portfolio-12d2.onrender.com/)  
 
-### [Task-tracking app](https://github.com/aghee/django_projects/tree/main/Task_tracking_app)
+### [Task-tracking app](https://github.com/aghee/task_tracker_app)    
 This is a simple web application developed using Django models, views, and forms to help users manage their tasks.  
 
 ## Functional requirements  
@@ -21,7 +21,20 @@ This is a simple web application developed using Django models, views, and forms
 * Password reset
 * Search functionality  
 
-Visit app
+[Visit app] (https://task-tracker-e0bs.onrender.com)  
+
+###[Codding Buddy app](https://github.com/aghee/coding_buddy_app)  
+This is an app that helps junior developers interact and learn from other developers in the community.  
+
+## Functional requirements    
+* User authentication - register,login and signout    
+* Social authentication using Google Sign-In to simplify user login   
+* Users can search for other members  
+* Users can create,read, update and delete posts  
+* Users can be notified of new messages   
+
+[Visit app]  
+
 
 ### Contribution Guidelines
 [Zen of Python](https://docs.python.org/3/glossary.html#term-Zen-of-Python)
