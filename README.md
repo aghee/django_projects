@@ -10,6 +10,12 @@ Update the files with secret credentials as needed
 ### Portfolio  
 [View my portfolio](https://portfolio-12d2.onrender.com/)  
 
+### [InventoryMgt System](https://github.com/aghee/InventoryMgtSystem)    
+This system aims to help small scale businesses keep track of their stock, replenish stock , as well as track sales of each product.  
+
+## Functional requirements  
+ 
+
 ### [Task-tracking app](https://github.com/aghee/task_tracker_app)    
 This is a simple web application developed using Django models, views, and forms to help users manage their tasks.  
 
